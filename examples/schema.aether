@@ -1,0 +1,44 @@
+syntax = "aether_v1";
+
+package mobile.system;
+
+service DeviceService {
+  rpc GetDeviceInfo(DeviceRequest) returns (DeviceResponse);
+  rpc StreamAccelerometer(SensorConfig) returns (stream SensorData);
+}
+
+service PaymentService {
+  rpc AuthorizePayment(PaymentRequest) returns (PaymentResponse);
+}
+
+message DeviceRequest {
+  string client_version = 1;
+}
+
+message DeviceResponse {
+  string model = 1;
+  string os_version = 2;
+  int32 battery_level = 3;
+}
+
+message SensorConfig {
+  int32 frequency_hz = 1;
+}
+
+message SensorData {
+  int64 timestamp = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+}
+
+message PaymentRequest {
+  string merchant_id = 1;
+  float amount = 2;
+  string currency = 3;
+}
+
+message PaymentResponse {
+  bool approved = 1;
+  string transaction_id = 2;
+}

@@ -1,0 +1,33 @@
+{
+  "name": "aether-wv",
+  "version": "1.0.0",
+  "description": "Aether-WV: The Heterogeneous Local IPC Fabric for Modern WebViews",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "aetherc": "./bin/aetherc.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "test:src": "tsc && node --test dist/tests/*.test.js",
+    "demo": "tsc && node dist/examples/run-demo.js",
+    "benchmark": "tsc && node dist/tests/benchmark.test.js"
+  },
+  "keywords": [
+    "webview",
+    "ipc",
+    "bridge",
+    "binary-protocol",
+    "reactive-streams",
+    "backpressure",
+    "wkwebview",
+    "android-webview"
+  ],
+  "author": "Aether Architecture Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
